@@ -1,0 +1,201 @@
+html,body {
+		height: 100%;
+		margin: 0;
+	}
+		.wrapper {
+			background-image: url("images/startup.jpg");
+			background-size: cover;
+			background-position: center;
+			height: 800px;
+			width: 100%;
+			font-family: 'Montserrat', sans-serif;
+			display: flex;
+			justify-content: center;
+			align-items:center; 
+			margin-bottom: -8%;
+		}
+
+		
+
+		.rightbar {
+			background: green;
+			height: 650px;
+			width: 60%;
+			overflow: hidden;
+			padding: 5px;
+			display: inline-block;
+			margin-top: -10%;
+		}
+
+
+		.content {
+			background: #669999;
+			height: 155px;
+			width: 100%;
+		}
+
+		
+
+		.input-group textarea {
+			height: 100px;
+			font-size: 17px;
+		}
+
+		.input-group textarea[placeholder] {
+			padding-top: 5%;
+			padding-left: 5%;
+		}
+
+		.btn-primary {
+			font-size: 14px;
+			height: 40px;
+			width: 15%;
+			text-align: center;
+			margin-left: 84%;
+			margin-top: -8%;
+		}
+
+
+
+		#exampleFormControlSelect1 {
+			 width: 140px;
+			 margin-left: 62%;
+		}
+			 
+
+		.activities {
+			width: 100%;
+			height: 60px;
+			background: orange;
+		}
+
+
+
+		.nav-item button {
+			width: 9%;
+			font-size: 17px;
+			height: 35px;
+		}
+
+		.nav-item .card-img-top {
+			height: 20%;
+			width: 50%;
+		}
+
+		.nav-item a {
+			margin:2px;
+		}
+
+
+		.navbar-nav {
+			margin-right: 5%;
+		}
+
+		.dropdown-menu {
+			min-width: 65px !important;
+		}
+
+		.dropdown-menu>a{
+			padding: 2px 7px;
+		}
+
+		
+
+		.error {
+			color: red;
+		}
+
+
+		.user-post {
+			width: 100%;
+			background: blue;
+			height: 150px;
+		}
+
+		.post-interaction {
+			width: 100%;
+			height: 70px;
+			background:  #33ffad;
+			text-align: center;
+		}
+
+		.first {
+			list-style: none;
+			text-align: center;
+			line-height: 50px;
+			float: left;
+			width: 130px;
+			margin-left: 17%;
+			margin-top: 1.5%;
+			height: 50px;
+			padding:0px 10px;
+		}
+			
+
+
+		.second {
+			list-style: none;
+			text-align: center;
+			line-height: 50px;
+			float: left;
+			width: 130px;
+			margin-left: 5%;
+			margin-top: 1.5%;
+			height: 50px;
+			padding:0px 10px;
+		}
+		
+
+		#comment-two {
+			display: none;
+		}
+
+		.share {
+			height: 50px;
+			font-size: 16px;
+		}
+
+		#single-comment {
+			background-color: #888844;
+			width: 100%;
+			margin-top: 5%;
+			border-radius: 5%;
+			height: 50px;
+			overflow-y: auto;
+
+		}
+
+		#post_comment {
+			height: 60px;
+			width: 80%;
+			padding: 0px;
+		}
+
+		#exampleTextarea {
+			padding: 0px;
+		}
+
+		#comment_button {
+			height: 55px;
+			width: 100%;
+			margin-left: -1%;
+			margin-top: 2%;
+		}
+
+		.hide {
+			display: none;
+		}
+
+		.like,.unlike,.likes_count {
+			color: yellow;
+		}
+
+		.display {
+			display: none;
+		}
+
+	
+
+		
+
+
