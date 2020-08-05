@@ -48,38 +48,53 @@ if (isset($_FILES['photo']['name'])) {
 	
 </head>
 	<body>
-		<div class="profile-page">
+		<div class=" container-fluid profile-page">
+
+			<div class="row">
+
+			   
+			   	<?php include("left.php"); ?>
+			   
+
+
+			   <div class="col-8 profile">
+
+			   	
+
+			   		<img
+			   		<?php  
+
+			   		$src = "/autodokta/".$_SESSION["image"];
+			   		 echo '<img class="card-img-top"
+			   	
+			   		  src="'.$src.'" alt="Card image cap">'
+
+			   		 ?>>
+			   		 
+
+
+			   		<form method="post" id="edit-form" action="" enctype="multipart/form-data" class="myForm">
+
+			   		  <div class="form-group">
+			   		    <input type="file" class="form-control-file" name="photo"
+			   		     id="exampleFormControlFile1" required="required">
+			   		  </div>
+
+			   		
+			   		  <input type="submit" name="btn_update" class="btn btn-primary" value="Update profile">
+			   		
+			   		</form>
+
+			   	
+
+			   </div>
+
+			 </div>
 
 			
 
 
-			<div class="profile">
-
-				<img
-				<?php  
-
-				$src = "/autodokta/".$_SESSION["image"];
-				 echo '<img class="card-img-top"
 			
-				  src="'.$src.'" alt="Card image cap">'
-
-				 ?>>
-				 
-
-
-				<form method="post" id="edit-form" action="" enctype="multipart/form-data" class="myForm">
-
-				  <div class="form-group">
-				    <input type="file" class="form-control-file" name="photo"
-				     id="exampleFormControlFile1" required="required">
-				  </div>
-
-				
-				  <input type="submit" name="btn_update" class="btn btn-primary" value="Update profile">
-				
-				</form>
-
-			</div>
 				
 			<!-- end of profile -->
 

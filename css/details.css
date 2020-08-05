@@ -1,0 +1,28 @@
+.card-img-top {
+	max-height:400px;
+	display: block;
+}
+
+
+/*list items*/
+.list-group a {
+	padding-left: 35%;
+	font-size: 17px;
+	color:#000000;
+	font-weight: bold;
+}
+
+.list-group a:hover {
+	text-decoration: none;
+	color: #00cc66;
+}
+
+/*list items*/
+
+.left {
+	margin-top: 2%;
+}
+
+.my-content {
+	margin-top: 2%;
+}

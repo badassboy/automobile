@@ -13,59 +13,76 @@ $(document).ready(function(){
 	});
 
 
-	 $('#shareBtn').on('click',function(event){
+	// ajax handling for membership form
+	 $(document).ready(function(){
 
-	 	var message = $(":input[name='message']").val();
-	 	var category = $(":input[name='category']").val();
-	 	var checked = "true";
+	     $("#myForm").submit(function(e){
+	       e.preventDefault();
+	       $.ajax({
+	         type:"post",
+	         url:"postsajax.php",
+	         data:$("#myForm").serialize()
+	       })
 
-	 	if (message.length < 1) {
-	 		checked = 'false';
-	 		alert("Please enter message");
-	 	}
+	       .done(function(data){
+	         $('#ad-seen').html(data);
+	         // console.log("hello");
+	         $('#user-ad').val(" ");
+	       })
 
-	 	if (category.length < 1) {
-	 		checked = 'false';
-	 		alert("Please choose category");
-	 	}
+	       .fail(function(data){
+	         // $('#message').html(data);
+	         console.log("ajax failed to fire");
+	       });
 
-
-	 	var form = $('#myForm').serialize();
-	 	var url = $('#myForm').attr('action');
-
-
-	 	if (checked == 'true') {
-	 		// ajax form submission
-	 		$.ajax({
-	 			type : "POST",
-	 			url : url,
-	 			data : form
-
-	 		})
-	 		// using the done promise callback
-	 		.done(function(data){
-	 			console.log(data);
-	 			console.log("success");
-	 			// autopopulate div
-	 			$('#receivingPost').text($('#exampleTextarea').val());
-	 			// retrieve the DOM element matched by the jQuery object
-	 			$('#myForm').get(0).reset();
-
-
-	 		})
-
-	 		.fail(function(data){
-	 			console.log(data);
-	 			console.log("failed");
-	 		})
-
-	 		// stop form from submitting the normal way
-	 		// and page refreshing
-	 		event.preventDefault();
-	 		
-	 	}
+	      // $("#membership_form").find('input').val(" ");
+	         
+	     });
 
 	 });
+
+
+	 // $('#shareBtn').on('click',function(event){
+
+		// var form = $('#myForm').serialize();
+	 // 	var url = $('#myForm').attr('action');
+
+
+	 // 	if (checked == 'true') {
+	 // 		// ajax form submission
+	 // 		$.ajax({
+	 // 			type : "POST",
+	 // 			url : url,
+	 // 			data : form
+
+	 // 		})
+	 // 		// using the done promise callback
+	 // 		.done(function(data){
+	 // 			// console.log(data);
+	 // 			// console.log("success");
+	 // 			// autopopulate div
+	 // 			// $('#ad-seen').text($('#user-ad').val());
+	 // 			$('#ad-seen').html(data);
+
+	 // 			// retrieve the DOM element matched by the jQuery object
+	 // 			$('#myForm').get(0).reset();
+	 // 			$('#user-ad').val(" ");
+
+
+	 // 		})
+
+	 // 		.fail(function(data){
+	 // 			console.log(data);
+	 // 			console.log("failed");
+	 // 		})
+
+	 // 		// stop form from submitting the normal way
+	 // 		// and page refreshing
+	 // 		event.preventDefault();
+	 		
+	 // 	}
+
+	 // });
 
 
 		// comment system

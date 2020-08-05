@@ -1,201 +1,129 @@
-html,body {
-		height: 100%;
-		margin: 0;
-	}
-		.wrapper {
-			background-image: url("images/startup.jpg");
-			background-size: cover;
-			background-position: center;
-			height: 800px;
-			width: 100%;
-			font-family: 'Montserrat', sans-serif;
-			display: flex;
-			justify-content: center;
-			align-items:center; 
-			margin-bottom: -8%;
-		}
+/*
+ * Globals
+ */
 
-		
+/* Links */
+a,
+a:focus,
+a:hover {
+  color: #fff;
+}
 
-		.rightbar {
-			background: green;
-			height: 650px;
-			width: 60%;
-			overflow: hidden;
-			padding: 5px;
-			display: inline-block;
-			margin-top: -10%;
-		}
+/* Custom default button */
+.btn-secondary,
+.btn-secondary:hover,
+.btn-secondary:focus {
+  color: #333;
+  text-shadow: none; /* Prevent inheritance from `body` */
+  background-color: #fff;
+  border: .05rem solid #fff;
+}
 
 
-		.content {
-			background: #669999;
-			height: 155px;
-			width: 100%;
-		}
+/*
+ * Base structure
+ */
 
-		
+html,
+body {
+  height: 100%;
+ 
+  background-image: url("images/parts.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
 
-		.input-group textarea {
-			height: 100px;
-			font-size: 17px;
-		}
+body {
+  display: -ms-flexbox;
+  display: flex;
+  color: #fff;
+  text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+  box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+}
 
-		.input-group textarea[placeholder] {
-			padding-top: 5%;
-			padding-left: 5%;
-		}
+.cover-container {
+  max-width: 42em;
+  /*background-color: red;*/
+  /*width: 100%;*/
+  /*height: 500px;*/
 
-		.btn-primary {
-			font-size: 14px;
-			height: 40px;
-			width: 15%;
-			text-align: center;
-			margin-left: 84%;
-			margin-top: -8%;
-		}
-
-
-
-		#exampleFormControlSelect1 {
-			 width: 140px;
-			 margin-left: 62%;
-		}
-			 
-
-		.activities {
-			width: 100%;
-			height: 60px;
-			background: orange;
-		}
+}
 
 
+/*
+ * Header
+ */
+.masthead {
+  margin-bottom: 2rem;
+}
 
-		.nav-item button {
-			width: 9%;
-			font-size: 17px;
-			height: 35px;
-		}
+.masthead-brand {
+  margin-bottom: 0;
+}
 
-		.nav-item .card-img-top {
-			height: 20%;
-			width: 50%;
-		}
+.nav-masthead .nav-link {
+  padding: .25rem 0;
+  font-weight: 700;
+  color:rgb(255, 255, 255);
+  background-color: transparent;
+  border-bottom: .25rem solid transparent;
+  font-size: 20px;
+}
 
-		.nav-item a {
-			margin:2px;
-		}
+.nav-masthead .nav-link:hover,
+.nav-masthead .nav-link:focus {
+  border-bottom-color: rgb(255, 255, 255);
 
+}
 
-		.navbar-nav {
-			margin-right: 5%;
-		}
+.nav-masthead .nav-link + .nav-link {
+  margin-left: 1rem;
+}
 
-		.dropdown-menu {
-			min-width: 65px !important;
-		}
+.nav-masthead .active {
+  color: #fff;
+  border-bottom-color: #fff;
+}
 
-		.dropdown-menu>a{
-			padding: 2px 7px;
-		}
-
-		
-
-		.error {
-			color: red;
-		}
-
-
-		.user-post {
-			width: 100%;
-			background: blue;
-			height: 150px;
-		}
-
-		.post-interaction {
-			width: 100%;
-			height: 70px;
-			background:  #33ffad;
-			text-align: center;
-		}
-
-		.first {
-			list-style: none;
-			text-align: center;
-			line-height: 50px;
-			float: left;
-			width: 130px;
-			margin-left: 17%;
-			margin-top: 1.5%;
-			height: 50px;
-			padding:0px 10px;
-		}
-			
+@media (min-width: 48em) {
+  .masthead-brand {
+    float: left;
+  }
+  .nav-masthead {
+    float: right;
+  }
+}
 
 
-		.second {
-			list-style: none;
-			text-align: center;
-			line-height: 50px;
-			float: left;
-			width: 130px;
-			margin-left: 5%;
-			margin-top: 1.5%;
-			height: 50px;
-			padding:0px 10px;
-		}
-		
+/*
+ * Cover
+ */
+.cover {
+  padding: 0 1.5rem;
+}
 
-		#comment-two {
-			display: none;
-		}
+.cover-heading {
+	color:rgb(255, 255, 255);
+	font-weight: bold;
+}
 
-		.share {
-			height: 50px;
-			font-size: 16px;
-		}
+.lead {
+	color:rgb(255, 255, 255);
+	font-weight: normal;
+	font-size: 25px;
+}
 
-		#single-comment {
-			background-color: #888844;
-			width: 100%;
-			margin-top: 5%;
-			border-radius: 5%;
-			height: 50px;
-			overflow-y: auto;
+.cover .btn-lg {
+  padding: .75rem 1.25rem;
+  font-weight: 700;
+}
 
-		}
 
-		#post_comment {
-			height: 60px;
-			width: 80%;
-			padding: 0px;
-		}
-
-		#exampleTextarea {
-			padding: 0px;
-		}
-
-		#comment_button {
-			height: 55px;
-			width: 100%;
-			margin-left: -1%;
-			margin-top: 2%;
-		}
-
-		.hide {
-			display: none;
-		}
-
-		.like,.unlike,.likes_count {
-			color: yellow;
-		}
-
-		.display {
-			display: none;
-		}
-
-	
-
-		
-
+/*
+ * Footer
+ */
+.mastfoot {
+  color: rgba(255, 255, 255, .5);
+}
 

@@ -126,6 +126,7 @@
 	.cover .btn-lg {
 	  padding: .75rem 1.25rem;
 	  font-weight: 700;
+		background-color:#00cc66;
 	}
 
 
@@ -163,7 +164,7 @@
 		    <h1 class="cover-heading">TRUSTED MARKET PLACE FOR GENUINE CAR SPARE PARTS</h1>
 		    <p class="lead">Buy or sell your genuine car spare  parts easily</p>
 		    <p class="lead">
-		      <a href="#" class="btn btn-lg btn-secondary">SIGN UP NOW</a>
+		      <a href="signup.php" class="btn btn-lg btn-secondary">SIGN UP NOW</a>
 		    </p>
 		  </main>
 

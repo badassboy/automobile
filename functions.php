@@ -140,15 +140,15 @@ function user_loggedin($email,$password){
 			return false;
 		}
 
+	}
+}
 
 		
 			
-	}
 			
 
 	
 
-}
 
 
 
@@ -164,7 +164,6 @@ function update_profile($file_name){
 	 $path = "../autodokta/images/";
 	 $errors = array();
       $file_name = $_FILES["photo"]['name'];
-      // echo (gettype($file_name));
       $file_size = $_FILES['photo']['size'];
 
       $file_tmp = $_FILES['photo']['tmp_name'];
@@ -195,22 +194,20 @@ function update_profile($file_name){
      		try{
 
 		        $sql = $dbh->prepare("UPDATE users SET image = :img WHERE id = :uid;");
-		        //Open stream to file with filepath
-     			//$fp = fopen("C:\\xampp\\htdocs\\autodokta\\images\\".$file_name, 'r');
-
+		        
      			$id = $_SESSION['id'];
+
      		
-				  //$sql=$dhb->prepare("UPDATE users SET image  ")
      			$sql->bindParam(':img' , $file_name); 
      			$sql->bindParam(':uid' , $id,PDO::PARAM_INT); 
 
 		        $sql->execute();
 			 	$updated = $sql->rowCount();
 			 	if ($updated > 0) {
-			 		// juts a test
-			 		echo "hello";
+			 		return true;
+			 		
 			 	}else {
-			 		echo "hi";
+			 		return false;
 			 	}
 
      			
@@ -229,6 +226,129 @@ function update_profile($file_name){
 
 
 }
+
+function submitUserPost($message){
+	global $dbh;
+
+	try {
+
+		$stmt=$dbh->prepare("INSERT INTO users_ads(message) VALUES(:msg)");
+		$stmt->execute(array(":msg" => $message));
+
+		$data = $stmt->rowCount();
+		if ($data > 0) {
+			return true;
+		}else {
+			return false;
+		}
+		
+	}catch (PDOException $e) {
+		return $e->getMessage();
+		
+	}
+}
+
+function uploadUserAd($product,$price,$file_name,$description){
+
+	global $dbh;
+	// image uploading code
+	 $path = "../autodokta/ad_pics/";
+	 $errors = array();
+	  $file_name = $_FILES['prd_image']['name'];
+	  $file_size = $_FILES['prd_image']['size'];
+
+	  $file_tmp = $_FILES['prd_image']['tmp_name'];
+	  $file_type = $_FILES['prd_image']['type'];
+	  $_SESSION["name"] = $file_name;
+
+	  $test_file = $path.basename($_FILES["prd_image"]["name"]);
+	  $file_ext = pathinfo($test_file, PATHINFO_EXTENSION);
+
+	  $extensions= array("jpeg","jpg","png","gif");
+
+	  if(in_array($file_ext,$extensions) === false){
+	     $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+	  }
+
+	  if($file_size > 4097152) {
+	     $errors[]='File size must be exactly 2MB';
+	  }
+
+	  if (empty($errors)==true) {
+	  		move_uploaded_file($file_tmp, "../autodokta/ad_pics/".$file_name);
+	  }
+
+	  // inserting data into database table
+	  try {
+
+	  	$stmt=$dbh->prepare("INSERT INTO users_ads(product_name,price,product_image,description) 
+	  		VALUES(:name,:price,:image,:descr)");
+	  	$stmt->execute(array(
+
+	  		":name" => $product,
+	  		":price" => $price,
+	  		":image" => $file_name,
+	  		":descr" => $description
+
+	  	));
+
+	  	$data = $stmt->rowCount();
+	  	if ($data > 0) {
+	  		return true;
+	  	}else {
+	  		return false;
+	  	}
+	  	
+	  }catch (PDOException $e) {
+	  	return $e->getMessage();
+	  	
+	  }
+}
+
+
+function displayUserAds(){
+
+	global $dbh;
+
+
+	$stmt = $dbh->prepare("SELECT * FROM users_ads");
+	$stmt->execute();
+	$data = $stmt->fetchAll(); 
+		return $data;
+}
+
+function productDetails($id){
+
+	global $dbh;
+	try{
+
+		$stmt = $dbh->prepare("SELECT * FROM users_ads WHERE ad_id=:uid");
+		$stmt->execute(array(":uid"=>$id));
+		$row = $stmt->fetchAll();
+			return  $row;
+	}catch(PDOException $ex){
+		return $ex->getMessage();
+	}
+	
+}
+	
+	
+
+
+
+
+
+	
+			
+		
+
+
+
+
+
+
+
+
       		
 
        
